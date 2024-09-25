@@ -1,10 +1,11 @@
 package repository;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface Repositorio<T>{
-    void salvar(T elmento);
+public interface Repositorio<T, E>{
+    void salvar(T elemento);
     void remover(String placa);
-    T buscarPorPlaca(String placa);
+    Optional<T> buscarPorId(E id);
     List<T> listarTodos();
 }
