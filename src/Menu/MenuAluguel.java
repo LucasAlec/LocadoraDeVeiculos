@@ -52,6 +52,6 @@ public class MenuAluguel {
         String clienteId = ScannerUtil.lerString("Informe o ID do cliente: ");
         String veiculoId = ScannerUtil.lerString("Informe o ID do veículo: ");
 
-        aluguelService.devolverVeiculo(clienteId, veiculoId);
+        //aluguelService.devolverVeiculo(clienteId, veiculoId);
     }
 }
