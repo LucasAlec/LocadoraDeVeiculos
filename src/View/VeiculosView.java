@@ -108,7 +108,7 @@ public class VeiculosView {
         try {
             return TipoVeiculo.values()[n - 1];
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Opção inválida.");
+            ScannerUtil.exibirErro(" opção inválida.");
             return null;
         }
     }
@@ -161,9 +161,9 @@ public class VeiculosView {
             veiculo.setAnoFabricacao(novoAnoFabricacao);
 
             veiculoService.editar(veiculo);
-            System.out.println("Veículo atualizado com sucesso.");
+            ScannerUtil.exibirSucesso(" Veículo atualizado.");
         } else {
-            System.out.println("Veículo com a placa " + placa + " não encontrado.");
+            ScannerUtil.exibirInvalido(" Veículo com a placa " + placa + " não encontrado.");
         }
     }
 
@@ -173,10 +173,10 @@ public class VeiculosView {
 
         if (veiculoOptional.isPresent()) {
             Veiculo veiculo = veiculoOptional.get();
-            System.out.println("Veículo encontrado:");
+            ScannerUtil.exibirSucesso(" Veículo encontrado:");
             exibirDetalhesVeiculo(veiculo);
         } else {
-            System.out.println("Veículo com a placa " + placa + " não encontrado.");
+            ScannerUtil.exibirInvalido(" Veículo com a placa " + placa + " não encontrado.");
         }
     }
 
@@ -196,7 +196,7 @@ public class VeiculosView {
     }
 
     private void removerVeiculo() {
-        String placa = ScannerUtil.lerString("digite a placa do veículo que deseja remover: ");
+        String placa = ScannerUtil.lerString("Digite a placa do veículo que deseja remover: ");
 
         Optional<Veiculo> veiculoOptional = veiculoService.buscarPorPlaca(placa);
 
